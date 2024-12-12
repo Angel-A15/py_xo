@@ -1,8 +1,3 @@
-# I want to make a x & o's game
-# progression is made by terminal input
-# game will ask if i want to start
-# the game will end and ask if i want to play again
-
 def print_board(board):
     for i, row in enumerate(board):
         row_str = " "
@@ -10,9 +5,10 @@ def print_board(board):
             row_str += value
             if j != len(row) -1:
                 row_str += " | "
+
         print(row_str)
-    if i != len(board) - 1:
-        print("----------")
+        if i != len(board) - 1:
+            print("----------")
 
 def get_move(turn, board):
     while True:
@@ -21,10 +17,13 @@ def get_move(turn, board):
 
         if row < 1 or row > len(board):
             print("Invalid row, try again.")
+
         elif col < 1 or col > len(board[row -1]):
             print("Invalid col, try again.")
+
         elif board[row -1][col -1] != " ":
             print("Already taken, try again.")
+
         else:
             break
     board[row -1][col -1] = turn
@@ -52,9 +51,9 @@ def check_win(board, turn):
     return False
 
 board = [
-    [" ", " ", ""],
-    [" ", " ", ""],
-    [" ", " ", ""]
+    [" ", " ", " "],
+    [" ", " ", " "],
+    [" ", " ", " "]
 ]
 
 turn = "X"
